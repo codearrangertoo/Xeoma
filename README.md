@@ -1,8 +1,8 @@
-# Xeoma
-Xeoma Dockerfile
+# Xeoma Dockerfile
 
 http://felenasoft.com/xeoma/en/
 
+https://registry.hub.docker.com/u/jgarland79/xeoma/
 
 #Download the docker image from docker.io
 docker pull docker.io/jgarland79/xeoma:latest
