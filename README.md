@@ -3,13 +3,12 @@ Xeoma Dockerfile
 
 http://felenasoft.com/xeoma/en/
 
-Building:
 
-docker build --tag=jgarland79/xeoma:15.2.25 ./
+#Download the docker image from docker.io
+docker pull docker.io/jgarland79/xeoma:latest
 
-Starting and getting the password:
+#Start docker and retrieve the password
+CID=$(docker run -d -t -p 8090:8090 docker.io/jgarland79/xeoma:latest) && docker exec $CID /home/xeoma/bin/xeoma.app -showpassword
 
-CID=$(docker run -d -t -p 8090:8090 jgarland79/xeoma:15.2.25) && docker exec $CID /home/xeoma/bin/xeoma.app -showpassword
-
-
+Then launch the Xeoma client and configure it to connect to your remote server using the password you retrieved.
 
