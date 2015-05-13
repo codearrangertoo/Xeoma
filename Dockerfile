@@ -36,6 +36,8 @@ WORKDIR /home/xeoma/bin
 
 RUN tar -xzvf /tmp/xeoma_linux64.tgz
 
+RUN rm /tmp/xeoma_linux64.tgz
+
 WORKDIR /home/xeoma
 
 # Expose ssh and Xeoma ports
