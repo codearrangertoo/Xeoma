@@ -1,8 +1,15 @@
 # Xeoma
 Xeoma Dockerfile
 
-Getting the password:
+http://felenasoft.com/xeoma/en/
 
-docker exec $CID /home/xeoma/bin/xeoma.app -showpassword
+Building:
+
+docker build --tag=jgarland79/xeoma:15.2.25 ./
+
+Starting and getting the password:
+
+CID=$(docker run -d -t -p 8090:8090 jgarland79/xeoma:15.2.25) && docker exec $CID /home/xeoma/bin/xeoma.app -showpassword
+
 
 
