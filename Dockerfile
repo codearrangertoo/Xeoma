@@ -19,30 +19,20 @@ RUN echo xeoma:xeoma | chpasswd
 RUN echo 'xeoma ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/xeoma
 RUN chmod 0440 /etc/sudoers.d/xeoma
 
-WORKDIR /home/xeoma
-
 USER xeoma
 
-RUN mkdir -p /home/xeoma/.config/Xeoma
+WORKDIR /home/xeoma
 
-RUN mkdir -p /home/xeoma/bin
+RUN mkdir -p /home/xeoma/.config/Xeoma
 
 VOLUME /home/xeoma/.config/Xeoma
 
 # Download Xeoma
-RUN wget http://felenasoft.com/xeoma/downloads/xeoma_linux64.tgz -O /tmp/xeoma_linux64.tgz
-
-WORKDIR /home/xeoma/bin
-
-RUN tar -xzvf /tmp/xeoma_linux64.tgz
-
-RUN rm /tmp/xeoma_linux64.tgz
-
-WORKDIR /home/xeoma
+RUN mkdir -p /home/xeoma/bin && wget http://felenasoft.com/xeoma/downloads/xeoma_linux64.tgz -O - | tar -xzC /home/xeoma/bin
 
 # Expose ssh and Xeoma ports
-EXPOSE 8090:8090
+EXPOSE 8090
 EXPOSE 22
 
-ENTRYPOINT ["/home/xeoma/bin/xeoma.app", "-core"]
+CMD ["/home/xeoma/bin/xeoma.app", "-core"]
 
