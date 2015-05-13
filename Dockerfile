@@ -39,5 +39,5 @@ EXPOSE 8090
 EXPOSE 22
 
 # Launch the server
-CMD ["/home/xeoma/bin/xeoma.app", "-core"]
+CMD ["/home/xeoma/bin/xeoma.app", "-core", "-log"]
 
