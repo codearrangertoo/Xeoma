@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Resynchronize the package index files 
 RUN apt-get update && apt-get install -y \
-	libasound2 wget
+	libasound2 wget curl
 
 # Set the root passwd
 RUN echo 'root:root' | chpasswd
